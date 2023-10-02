@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="db/changelog/2023-10-02-01-customer-table-create.xml"/>
+    <include file="db/changelog/2023-10-02-10-insert-data-in-table-costumer-course.xml"/>
+    <include file="db/changelog/2023-10-02-03-address-table-create.xml"/>
+    <include file="db/changelog/2023-10-02-04-insert-data-in-table-address.xml"/>
+    <include file="db/changelog/2023-10-02-05-contact-table-create.xml"/>
+    <include file="db/changelog/2023-10-02-06-insert-data-in-table-contact.xml"/>
+    <include file="db/changelog/2023-10-02-07-course-table-create.xml"/>
+    <include file="db/changelog/2023-10-02-08-insert-data-in-table-course.xml"/>
+    <include file="db/changelog/2023-10-02-09-costumer-course-table-create.xml"/>
+    <include file="db/changelog/2023-10-02-10-insert-data-in-table-costumer-course.xml"/>
+
+
+</databaseChangeLog>

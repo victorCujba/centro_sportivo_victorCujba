@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="Cujba Victor" id="2023-10-02-02-insert-data-in-table-customer">
+
+        <preConditions onFail="HALT">
+            <tableExists tableName="customer"/>
+        </preConditions>
+
+        <insert tableName="customer">
+            <column name="birth_date" value="1981-10-03T12:12:11.999999"/>
+            <column name="deleted" value="false"/>
+            <column name="name" value="Zlatan"/>
+            <column name="surname" value="Ibrahivic"/>
+            <column name="tax_code" value="JBTLFB42H46E226E"/>
+        </insert>
+
+        <insert tableName="customer">
+            <column name="birth_date" value="1972-07-23T12:12:11.444444"/>
+            <column name="deleted" value="false"/>
+            <column name="name" value="Zinedine"/>
+            <column name="surname" value="Zidane"/>
+            <column name="tax_code" value="BCRLLW67C54F592Q"/>
+        </insert>
+
+        <insert tableName="customer">
+            <column name="birth_date" value="1973-03-10T12:12:11.111111"/>
+            <column name="deleted" value="false"/>
+            <column name="name" value="Roberto"/>
+            <column name="surname" value="Carlos"/>
+            <column name="tax_code" value="JCDDFR71L23D230C"/>
+        </insert>
+
+        <insert tableName="customer">
+            <column name="birth_date" value="1986-03-30T12:12:11.555555"/>
+            <column name="deleted" value="false"/>
+            <column name="name" value="Sergio"/>
+            <column name="surname" value="Ramos"/>
+            <column name="tax_code" value="WWUBRB60B20A819Z"/>
+        </insert>
+
+        <insert tableName="customer">
+            <column name="birth_date" value="1989-07-16T12:12:11.555555"/>
+            <column name="deleted" value="false"/>
+            <column name="name" value="Gareth"/>
+            <column name="surname" value="Bale"/>
+            <column name="tax_code" value="ZGGVZX51E02I429X"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

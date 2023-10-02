@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet author="Cujba Victor" id="2023-10-02-09-costumer-course-table-create">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="costumer_course"/>
+            </not>
+        </preConditions>
+        <comment>costumer_course table create</comment>
+
+        <createTable tableName="costumer_course">
+            <column name="course_id" type="BIGINT(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="costumer_id" type="BIGINT(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleted" type="BIT(1)">
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="course_id" baseTableName="costumer_course"
+                                 constraintName="fk_customer_course_on_course" referencedColumnNames="id"
+                                 referencedTableName="course"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="customer_course"
+                                 constraintName="fk_customer_course_on_customer" referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+        <rollback>
+            <dropTable tableName="customer_course"/>
+        </rollback>
+
+
+    </changeSet>
+</databaseChangeLog>
