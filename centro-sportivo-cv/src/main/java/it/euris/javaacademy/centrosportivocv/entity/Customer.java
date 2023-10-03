@@ -9,8 +9,6 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.localDateTimeToString;
-
 
 @Builder
 @Getter
@@ -49,8 +47,8 @@ public class Customer implements Model {
     public CustomerDTO toDto() {
         return CustomerDTO
                 .builder()
-                .id(String.valueOf((id)))
-                .birthDate(localDateTimeToString(birthDate))
+                .id(id)
+                .birthDate(birthDate)
                 .deleted(deleted)
                 .name(name)
                 .surname(surname)

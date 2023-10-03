@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToLocalDateTime;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -16,8 +16,8 @@ import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.
 @Builder
 public class CustomerDTO implements Dto {
 
-    private String id;
-    private String birthDate;
+    private Long id;
+    private LocalDateTime birthDate;
     private Boolean deleted;
     private String name;
     private String surname;
@@ -28,8 +28,8 @@ public class CustomerDTO implements Dto {
     public Customer toModel() {
         return Customer
                 .builder()
-                .id(Long.valueOf((id)))
-                .birthDate(stringToLocalDateTime(birthDate))
+                .id(id)
+                .birthDate(birthDate)
                 .deleted(deleted)
                 .name(name)
                 .surname(surname)

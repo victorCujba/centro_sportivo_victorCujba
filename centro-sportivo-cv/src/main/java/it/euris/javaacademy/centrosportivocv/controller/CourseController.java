@@ -8,7 +8,6 @@ import it.euris.javaacademy.centrosportivocv.exception.IdMustBeNullException;
 import it.euris.javaacademy.centrosportivocv.exception.IdMustNotBeNullException;
 import it.euris.javaacademy.centrosportivocv.service.CourseService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,13 +15,13 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@RestController
 @RequestMapping("/courses")
 public class CourseController {
 
     CourseService courseService;
 
-    @GetMapping
+    @GetMapping("/v1")
     @Operation(description = """
             This method is used to get all courses from data base.
             """)
@@ -30,7 +29,7 @@ public class CourseController {
         return courseService.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/v1")
     @Operation(description = """
             This method is used to save a new course to data base.
             """)
@@ -44,7 +43,7 @@ public class CourseController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/v1")
     @Operation(description = """
             This method is used to update course data.
             """)
@@ -58,7 +57,7 @@ public class CourseController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/v1/{id}")
     @Operation(description = """
             This method is used to delete a course using courseId as parameter.
             """)
@@ -66,7 +65,7 @@ public class CourseController {
         return courseService.deleteById(courseId);
     }
 
-    @GetMapping
+    @GetMapping("/v1/{id}")
     @Operation(description = """
             This method is used to get a course using courseId as parameter
             """)
