@@ -6,8 +6,6 @@ import it.euris.javaacademy.centrosportivocv.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.bigIntToString;
-
 @Builder
 @Getter
 @Setter
@@ -51,15 +49,13 @@ public class Address implements Model {
     public AddressDTO toDto() {
         return AddressDTO
                 .builder()
-                .id(bigIntToString(id))
+                .id(id)
                 .address(address)
                 .city(city)
                 .deleted(deleted)
                 .nation(nation)
-                .postalCode(String.valueOf(postalCode))
+                .postalCode(postalCode)
                 .province(province)
                 .build();
     }
-
-
 }

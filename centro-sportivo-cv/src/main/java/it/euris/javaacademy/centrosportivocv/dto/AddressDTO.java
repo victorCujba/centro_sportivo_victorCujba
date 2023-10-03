@@ -13,26 +13,26 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AddressDTO implements Dto {
 
-    private String id;
+    private Long id;
     private String address;
     private String city;
     private Boolean deleted;
     private String nation;
-    private String postalCode;
+    private Integer postalCode;
     private String province;
-    private String customerId;
+    private Long customerId;
 
 
     @Override
     public Address toModel() {
         return Address
                 .builder()
-                .id(Long.valueOf((id)))
+                .id(id)
                 .address(address)
                 .city(city)
                 .deleted(deleted)
                 .nation(nation)
-                .postalCode(Integer.valueOf((postalCode)))
+                .postalCode(postalCode)
                 .province(province)
                 .build();
     }
