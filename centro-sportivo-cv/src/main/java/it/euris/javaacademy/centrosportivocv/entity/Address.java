@@ -6,8 +6,6 @@ import it.euris.javaacademy.centrosportivocv.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigInteger;
-
 import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.bigIntToString;
 
 @Builder
@@ -22,7 +20,7 @@ public class Address implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "address")
     private String address;
@@ -43,8 +41,10 @@ public class Address implements Model {
     @Column(name = "province")
     private String province;
 
-    @Column(name = "customer_id")
-    private BigInteger customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
 
     @Override
@@ -58,11 +58,8 @@ public class Address implements Model {
                 .nation(nation)
                 .postalCode(String.valueOf(postalCode))
                 .province(province)
-                .customerId(bigIntToString(customerId))
                 .build();
     }
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+
 }

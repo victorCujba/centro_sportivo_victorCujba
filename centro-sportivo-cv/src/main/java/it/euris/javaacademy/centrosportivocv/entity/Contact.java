@@ -6,10 +6,6 @@ import it.euris.javaacademy.centrosportivocv.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigInteger;
-
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.bigIntToString;
-
 @Builder
 @Getter
 @Setter
@@ -22,7 +18,7 @@ public class Contact implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "contact_type")
     private String contactType;
@@ -34,23 +30,21 @@ public class Contact implements Model {
     @Column(name = "value")
     private String value;
 
-    @Column(name = "customer_id")
-    private BigInteger customerId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
 
     @Override
     public ContactDTO toDto() {
         return ContactDTO
                 .builder()
-                .id(bigIntToString(id))
+                .id(String.valueOf((id)))
                 .contactType(contactType)
                 .deleted(deleted)
                 .value(value)
-                .customer_id(bigIntToString(customerId))
                 .build();
     }
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+
 }

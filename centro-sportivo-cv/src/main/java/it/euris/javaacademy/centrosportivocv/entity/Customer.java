@@ -6,11 +6,9 @@ import it.euris.javaacademy.centrosportivocv.dto.archetype.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.bigIntToString;
 import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.localDateTimeToString;
 
 
@@ -28,7 +26,7 @@ public class Customer implements Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "birth_date")
     private LocalDateTime birthDate;
@@ -51,7 +49,7 @@ public class Customer implements Model {
     public CustomerDTO toDto() {
         return CustomerDTO
                 .builder()
-                .id(bigIntToString(id))
+                .id(String.valueOf((id)))
                 .birthDate(localDateTimeToString(birthDate))
                 .deleted(deleted)
                 .name(name)
@@ -68,7 +66,6 @@ public class Customer implements Model {
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     List<Contact> customerContacts;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
-    List<CustomerCourse> customerCourses;
+
 
 }

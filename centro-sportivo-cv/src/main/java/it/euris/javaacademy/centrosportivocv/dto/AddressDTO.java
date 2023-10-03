@@ -7,9 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToBigInt;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,14 +27,13 @@ public class AddressDTO implements Dto {
     public Address toModel() {
         return Address
                 .builder()
-                .id(stringToBigInt(id))
+                .id(Long.valueOf((id)))
                 .address(address)
                 .city(city)
                 .deleted(deleted)
                 .nation(nation)
                 .postalCode(Integer.valueOf((postalCode)))
                 .province(province)
-                .customerId(stringToBigInt(customerId))
                 .build();
     }
 }

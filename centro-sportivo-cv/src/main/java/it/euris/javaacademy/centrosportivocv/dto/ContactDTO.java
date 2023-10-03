@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToBigInt;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,17 +17,15 @@ public class ContactDTO implements Dto {
     private String contactType;
     private Boolean deleted;
     private String value;
-    private String customer_id;
 
     @Override
     public Contact toModel() {
         return Contact
                 .builder()
-                .id(stringToBigInt(id))
+                .id(Long.valueOf((id)))
                 .contactType(contactType)
                 .deleted(deleted)
                 .value(value)
-                .customerId(stringToBigInt(customer_id))
                 .build();
     }
 }

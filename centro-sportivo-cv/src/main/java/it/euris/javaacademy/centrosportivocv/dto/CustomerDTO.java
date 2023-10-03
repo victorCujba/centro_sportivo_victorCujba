@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToBigInt;
 import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToLocalDateTime;
 
 
@@ -29,7 +28,7 @@ public class CustomerDTO implements Dto {
     public Customer toModel() {
         return Customer
                 .builder()
-                .id(stringToBigInt(id))
+                .id(Long.valueOf((id)))
                 .birthDate(stringToLocalDateTime(birthDate))
                 .deleted(deleted)
                 .name(name)

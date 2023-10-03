@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static it.euris.javaacademy.centrosportivocv.utility.DataConversionUtils.stringToBigInt;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +24,7 @@ public class CourseDTO implements Dto {
     public Course toModel() {
         return Course
                 .builder()
-                .id(stringToBigInt(id))
+                .id(Long.valueOf((id)))
                 .deleted(deleted)
                 .denomination(denomination)
                 .difficulty(difficulty)
